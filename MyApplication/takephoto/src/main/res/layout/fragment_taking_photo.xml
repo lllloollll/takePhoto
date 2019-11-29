@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F000"
+    tools:context=".TakingPhotoFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+    <TextureView
+        android:id="@+id/texture_view"
+
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="172dp"/>
+
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginBottom="172dp"
+        android:src="@drawable/shape_square"/>
+
+    <ImageButton
+        android:id="@+id/image_button_back"
+
+        android:layout_width="20dp"
+        android:layout_height="13dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginLeft="18dp"
+        android:background="@mipmap/button_back"/>
+
+    <ImageButton
+        android:id="@+id/image_button_lightning"
+
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_gravity="right"
+        android:layout_marginTop="54dp"
+        android:layout_marginRight="20dp"
+        android:src="@mipmap/sharp_lightning"/>
+
+    <ImageButton
+        android:id="@+id/image_button_image"
+
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_gravity="right"
+        android:layout_marginTop="54dp"
+        android:layout_marginRight="64dp"
+        android:src="@mipmap/image"/>
+
+    <ImageView
+        android:layout_width="158dp"
+        android:layout_height="34dp"
+        android:layout_gravity="center|bottom"
+        android:layout_marginBottom="160dp"
+        android:src="@mipmap/bubble"/>
+
+    <TextView
+        android:layout_width="144dp"
+        android:layout_height="20dp"
+        android:layout_gravity="center|bottom"
+        android:layout_marginBottom="172dp"
+        android:text="请将跑鞋侧面放入选景框内"
+        android:textSize="12sp"
+        android:textColor="#FFFF"/>
+
+    <ImageButton
+        android:id="@+id/button_take_photo"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center|bottom"
+        android:layout_marginBottom="78dp"
+        android:background="#f000"
+        android:src="@drawable/drawable_layer"/>
+
+    <ImageView
+        android:layout_width="134dp"
+        android:layout_height="5dp"
+        android:layout_gravity="bottom|center"
+        android:layout_marginBottom="9dp"
+        android:src="@drawable/shape"/>
+
+
+</FrameLayout>

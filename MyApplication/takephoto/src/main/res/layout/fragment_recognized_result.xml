@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#ff18191d"
+    tools:context=".RecognizedResultFragment">
+
+    <!-- TODO: Update blank fragment layout -->
+
+    <ImageButton
+        android:id="@+id/button_back"
+
+        android:layout_width="44dp"
+        android:layout_height="44dp"
+        android:layout_marginTop="44dp"
+        android:layout_marginLeft="6dp"
+        android:background="@drawable/shape_cancel_small"/>
+
+    <TextView
+        android:layout_width="162dp"
+        android:layout_height="26dp"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="53dp"
+        android:text="识别出最相近的款式"
+        android:textSize="18sp"
+        android:textColor="#FFC2C7CC"/>
+
+    <TextView
+        android:id="@+id/text_re_recognized"
+        
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="right|top"
+        android:layout_marginTop="56dp"
+        android:layout_marginRight="16dp"
+        android:text="重新识别"
+        android:textSize="14sp"
+        android:textColor="#FFE5E5E5"/>
+
+    <FrameLayout
+        android:layout_width="match_parent"
+        android:layout_height="381dp"
+        android:layout_marginLeft="12dp"
+        android:layout_marginRight="12dp"
+        android:layout_marginTop="100dp"
+        android:background="@drawable/frame_container">
+
+        <ImageView
+            android:id="@+id/image_result_shoes"
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="40dp"
+            android:layout_marginBottom="209dp"
+            android:layout_marginRight="65dp"
+            android:layout_marginLeft="66dp"
+            />
+
+        <TextView
+            android:id="@+id/title_result_shoes"
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="192dp"
+            android:layout_marginBottom="141dp"
+            android:layout_marginLeft="23dp"
+            android:layout_marginRight="22dp"/>
+
+        <Button
+            android:id="@+id/button_view_details"
+
+            android:layout_width="138dp"
+            android:layout_height="36dp"
+            android:layout_marginTop="272dp"
+            android:layout_gravity="center_horizontal"
+            android:gravity="center"
+            android:text="查看跑鞋详情"
+            android:textSize="14sp"
+            android:textColor="#FFFF"
+            android:background="@drawable/red_button"/>
+
+        <RadioGroup
+            android:id="@+id/radio_group_feedback"
+
+            android:layout_width="wrap_content"
+            android:layout_height="22dp"
+            android:layout_gravity="bottom|right"
+            android:layout_marginBottom="15dp"
+            android:layout_marginRight="16dp"
+            android:orientation="horizontal">
+            <RadioButton
+                android:id="@+id/radio_good"
+
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:button="@null"
+                android:background="@drawable/radio_good"
+
+                />
+
+
+            <TextView
+                android:id="@+id/text_good"
+
+                android:layout_width="28dp"
+                android:layout_height="22dp"
+                android:layout_marginLeft="4dp"
+                android:gravity="center"
+                android:text="准确"
+                android:textSize="14sp"
+                android:textColor="#FF7E858C"/>
+
+            <RadioButton
+                android:id="@+id/radio_bad"
+
+                android:layout_width="12dp"
+                android:layout_height="12dp"
+                android:layout_marginLeft="18dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:button="@null"
+                android:background="@drawable/radio_bad"
+                />
+
+            <TextView
+                android:id="@+id/text_bad"
+
+                android:layout_width="28dp"
+                android:layout_height="22dp"
+                android:layout_marginLeft="4dp"
+                android:gravity="center"
+                android:text="不准"
+                android:textSize="14sp"
+                android:textColor="#FF7E858C"/>
+
+        </RadioGroup>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom"
+            android:layout_marginLeft="16dp"
+            android:layout_marginBottom="15dp"
+            android:text="是否能准确识别？"
+            android:textSize="14sp"
+            android:textColor="#FF7E858C"/>
+
+
+    </FrameLayout>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        android:layout_marginTop="501dp"
+        android:text="相似推荐"
+        android:textColor="#FFE5E5E5"
+        android:textSize="16sp"/>
+
+    <ImageView
+        android:layout_width="134dp"
+        android:layout_height="5dp"
+        android:layout_gravity="bottom|center"
+        android:layout_marginBottom="9dp"
+        android:src="@drawable/shape"/>
+
+</FrameLayout>

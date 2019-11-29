@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+
+
+    <item
+        android:width="379dp"
+        android:height="640dp"
+        android:drawable="@drawable/img_aisearch_mask">
+        <shape android:shape="rectangle">
+            <padding
+                android:top="209dp"
+                android:left="22dp"
+                android:right="23dp"
+                android:bottom="187dp"/>
+            <solid android:color="#9000"/>
+        </shape>
+    </item>
+
+    <item
+        android:width="26dp"
+        android:height="26dp"
+        android:left="23dp"
+        android:top="209dp"
+        android:drawable="@drawable/route1"
+        />
+
+    <item
+        android:width="26dp"
+        android:height="26dp"
+        android:gravity="right"
+        android:top="209dp"
+        android:right="23dp"
+        android:drawable="@drawable/route2"/>
+
+    <item
+        android:width="26dp"
+        android:height="26dp"
+        android:gravity="bottom"
+        android:bottom="187dp"
+        android:left="22dp"
+        android:drawable="@drawable/route3"/>
+
+    <item
+        android:width="26dp"
+        android:height="26dp"
+        android:gravity="bottom|right"
+        android:bottom="187dp"
+        android:right="23dp"
+        android:drawable="@drawable/route4"/>
+
+
+</layer-list>
