@@ -24,7 +24,7 @@ public class RecognizedResultFragment extends Fragment {
 
     private RadioGroup radioGroupFeedback;
     private RadioButton radioGood,radioBad;
-    private TextView textGood,textBad;
+    private TextView textGood,textBad,reRecognized;
     private ImageButton buttonBack;
 
     private Boolean feekback;
@@ -46,12 +46,16 @@ public class RecognizedResultFragment extends Fragment {
         radioGroupFeedback.setOnCheckedChangeListener(ocl);
         textGood.setOnClickListener(onClickListener);
         textBad.setOnClickListener(onClickListener);
+
+        reRecognized.setOnClickListener(onClickListener);
         buttonBack.setOnClickListener(onClickListener);
     }
 
     @Override
     public void onResume() {
         super.onResume();
+
+        FragmentUtils.hideFragment(getFragmentManager().getFragments().get(0));
         List<Fragment> list = getFragmentManager().getFragments();
         for (Fragment fragment:list)System.out.println(fragment);
 
@@ -76,6 +80,7 @@ public class RecognizedResultFragment extends Fragment {
         textGood = getActivity().findViewById(R.id.text_good);
         textBad = getActivity().findViewById(R.id.text_bad);
         buttonBack = getActivity().findViewById(R.id.button_back);
+        reRecognized = getActivity().findViewById(R.id.text_re_recognized);
     }
 
     RadioGroup.OnCheckedChangeListener ocl = new RadioGroup.OnCheckedChangeListener() {
@@ -105,9 +110,10 @@ public class RecognizedResultFragment extends Fragment {
                     feekback = false;
                     showFeedbackResult();
                     break;
-                case R.id.button_back:
+                case R.id.button_back:case R.id.text_re_recognized:
                     getFragmentManager().popBackStack();
                     break;
+
             }
         }
     };

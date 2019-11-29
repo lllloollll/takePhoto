@@ -209,6 +209,8 @@ public class TakingPhotoFragment extends Fragment {
             switch (v.getId()) {
                 case R.id.image_button_image:
                     gotoImage();
+
+
                     break;
                 case R.id.image_button_lightning:
                     if (lightning == false){
