@@ -53,6 +53,8 @@ public class TakingPhotoFragment extends Fragment {
 
     private ImageCapture imageCapture;
 
+    private int numerator,denominator;
+
 
     File photo = null;
 
@@ -88,6 +90,8 @@ public class TakingPhotoFragment extends Fragment {
         textureView.post(new Runnable() {
             @Override
             public void run() {
+                numerator = textureView.getWidth();
+                denominator = textureView.getHeight();
                 startCamera();
             }
         });
@@ -149,8 +153,8 @@ public class TakingPhotoFragment extends Fragment {
     private void startCamera() {
         // 1. preview
         PreviewConfig previewConfig = new PreviewConfig.Builder()
-                .setTargetAspectRatio(new Rational(textureView.getWidth(), textureView.getHeight()))//纵横比
-                .setTargetResolution(new Size(640, 640))//分辨率
+                .setTargetAspectRatio(new Rational(1,1))//纵横比
+                .setTargetResolution(new Size(320, 320))//分辨率
                 .build();
 
         Preview preview = new Preview(previewConfig);
@@ -168,7 +172,7 @@ public class TakingPhotoFragment extends Fragment {
 
         //    照相
         ImageCaptureConfig imageCaptureConfig = new ImageCaptureConfig.Builder()
-                .setTargetAspectRatio(new Rational(1, 1))
+                .setTargetAspectRatio(new Rational(numerator, denominator))
                 .setCaptureMode(ImageCapture.CaptureMode.MIN_LATENCY)
                 .build();
         imageCapture = new ImageCapture(imageCaptureConfig);

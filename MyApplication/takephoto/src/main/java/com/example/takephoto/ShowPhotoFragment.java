@@ -14,6 +14,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 
@@ -21,6 +22,7 @@ import java.io.FileNotFoundException;
 public class ShowPhotoFragment extends Fragment {
 
     private ImageView imageView;
+    private String imagePath;
 
     @Override
     public void onActivityCreated(@Nullable Bundle savedInstanceState) {
@@ -35,10 +37,21 @@ public class ShowPhotoFragment extends Fragment {
         return inflater.inflate(R.layout.fragment_show_photo, container, false);
     }
 
+    @Override
+    public void onDestroy() {
+        super.onDestroy();
+        File imageFile = new File(imagePath);
+        System.out.println("OnDestory!");
+        if (imageFile.exists()){
+            imageFile.delete();
+            System.out.println("File:"+imageFile.exists());
+        }
+    }
+
     //    显示图片
     private void showImage(){
         Bundle bundle = getArguments();
-        String imagePath = bundle.getString("imagePath");
+        imagePath = bundle.getString("imagePath");
 //        Toast.makeText(getContext().getApplicationContext(),imagePath,Toast.LENGTH_SHORT).show();
 
 //        读取图片

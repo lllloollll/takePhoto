@@ -129,7 +129,6 @@ public class RecognizedResultFragment extends Fragment {
     };
 
     private void showFeedbackResult(){
-//        new Jump().JumpFragment(R.id.container,RecognizedResultFragment.this,new ResultFeedbackFragment());
         getFragmentManager().beginTransaction().add(R.id.container,new ResultFeedbackFragment()).addToBackStack(null).commitAllowingStateLoss();
         new Thread(new Runnable() {
             @Override
