@@ -26,6 +26,7 @@ import androidx.camera.core.Preview;
 import androidx.camera.core.PreviewConfig;
 import androidx.fragment.app.Fragment;
 
+import android.os.Environment;
 import android.os.Handler;
 import android.os.HandlerThread;
 import android.provider.MediaStore;
@@ -33,6 +34,7 @@ import android.util.Rational;
 import android.util.Size;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
+import android.view.Surface;
 import android.view.TextureView;
 import android.view.View;
 import android.view.ViewGroup;
@@ -147,8 +149,8 @@ public class TakingPhotoFragment extends Fragment {
     private void startCamera() {
         // 1. preview
         PreviewConfig previewConfig = new PreviewConfig.Builder()
-                .setTargetAspectRatio(new Rational(1, 1))
-                .setTargetResolution(new Size(640, 640))
+                .setTargetAspectRatio(new Rational(textureView.getWidth(), textureView.getHeight()))//纵横比
+                .setTargetResolution(new Size(640, 640))//分辨率
                 .build();
 
         Preview preview = new Preview(previewConfig);
@@ -256,6 +258,7 @@ public class TakingPhotoFragment extends Fragment {
             c.moveToFirst();
             int columnIndex = c.getColumnIndex(filePathColumns[0]);
             String imagePath = c.getString(columnIndex);
+            String filepath = File.separator + "mnt" + File.separator + "sdcard" + imagePath;
             Bundle bundle = new Bundle();
             bundle.putString("imagePath",imagePath);
             ShowPhotoFragment showPhotoFragment = new ShowPhotoFragment();

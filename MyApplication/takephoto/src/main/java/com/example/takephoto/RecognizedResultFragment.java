@@ -4,17 +4,26 @@ import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
+import android.util.AttributeSet;
 import android.view.KeyEvent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.RatingBar;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import java.util.List;
@@ -24,8 +33,11 @@ public class RecognizedResultFragment extends Fragment {
 
     private RadioGroup radioGroupFeedback;
     private RadioButton radioGood,radioBad;
-    private TextView textGood,textBad,reRecognized;
+    private TextView textGood,textBad,reRecognized,titleResultShoes;
     private ImageButton buttonBack;
+    private ImageView imageResultShoe;
+    private androidx.recyclerview.widget.RecyclerView recyclerView;
+    private RecyclerViewAdapter recyclerViewAdapter;
 
     private Boolean feekback;
 
@@ -41,14 +53,9 @@ public class RecognizedResultFragment extends Fragment {
 
         findView();
 
-        radioGood.setChecked(true);
 
-        radioGroupFeedback.setOnCheckedChangeListener(ocl);
-        textGood.setOnClickListener(onClickListener);
-        textBad.setOnClickListener(onClickListener);
 
-        reRecognized.setOnClickListener(onClickListener);
-        buttonBack.setOnClickListener(onClickListener);
+        setView();
     }
 
     @Override
@@ -81,6 +88,9 @@ public class RecognizedResultFragment extends Fragment {
         textBad = getActivity().findViewById(R.id.text_bad);
         buttonBack = getActivity().findViewById(R.id.button_back);
         reRecognized = getActivity().findViewById(R.id.text_re_recognized);
+        imageResultShoe = getActivity().findViewById(R.id.image_result_shoes);
+        titleResultShoes = getActivity().findViewById(R.id.title_result_shoes);
+        recyclerView = getActivity().findViewById(R.id.recyclerview);
     }
 
     RadioGroup.OnCheckedChangeListener ocl = new RadioGroup.OnCheckedChangeListener() {
@@ -132,5 +142,81 @@ public class RecognizedResultFragment extends Fragment {
                 }
             }
         }).start();
+    }
+
+    private void setView(){
+        radioGood.setChecked(true);
+
+        radioGroupFeedback.setOnCheckedChangeListener(ocl);
+        textGood.setOnClickListener(onClickListener);
+        textBad.setOnClickListener(onClickListener);
+
+        reRecognized.setOnClickListener(onClickListener);
+        buttonBack.setOnClickListener(onClickListener);
+
+        imageResultShoe.setImageURI(Uri.parse(new ShoeNews().coverImg));
+        titleResultShoes.setText(new ShoeNews().shoeName);
+
+        recyclerViewAdapter = new RecyclerViewAdapter();
+        recyclerView.setLayoutManager(new GridLayoutManager(getContext(),2));
+        recyclerView.setAdapter(recyclerViewAdapter);
+    }
+
+    public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapter.MyViewHolder>{
+
+        @NonNull
+        @Override
+        public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+            MyViewHolder holder = new MyViewHolder(LayoutInflater.from(getActivity().getApplicationContext())
+                    .inflate(R.layout.item_recyclerview,parent,false));
+            return holder;
+        }
+
+        @Override
+        public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
+//            holder.itemImage.setImageURI(Uri.parse());
+            holder.itemNumber.setText("("+new ShoeNews().commentCount+")");
+            holder.itemRating.setRating(new ShoeNews().avgScore);
+            holder.itemImage.setImageURI(Uri.parse(new ShoeNews().coverImg));
+            holder.itemTitle.setText(new ShoeNews().shoeName);
+
+            if (position == 0){
+//                添加new图片
+                holder.addView();
+
+            }
+
+        }
+
+        @Override
+        public int getItemCount() {
+            return 5;
+        }
+
+        class MyViewHolder extends RecyclerView.ViewHolder {
+            ImageView itemImage;
+            TextView itemTitle,itemNumber;
+            RatingBar itemRating;
+            RelativeLayout itemContainer;
+
+            public MyViewHolder(@NonNull View view) {
+                super(view);
+                itemImage = (ImageView) view.findViewById(R.id.item_image);
+                itemTitle = (TextView) view.findViewById(R.id.item_title);
+                itemNumber = (TextView) view.findViewById(R.id.item_number);
+                itemRating = (RatingBar) view.findViewById(R.id.item_rating_bar);
+                itemContainer = view.findViewById(R.id.item_container);
+            }
+            public void addView(){
+
+                ImageView imageView = new ImageView(getContext());
+                imageView.setImageResource(R.drawable.image_new);
+                imageView.setScaleType(ImageView.ScaleType.CENTER_CROP);
+                imageView.setPadding(0,12,0,0);
+//                ViewGroup.MarginLayoutParams mlp = new ViewGroup.MarginLayoutParams(getContext(), AttributeSet.);
+                itemContainer.addView(imageView);
+
+            }
+        }
     }
 }

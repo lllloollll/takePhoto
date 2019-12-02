@@ -39,7 +39,7 @@ public class ShowPhotoFragment extends Fragment {
     private void showImage(){
         Bundle bundle = getArguments();
         String imagePath = bundle.getString("imagePath");
-        Toast.makeText(getContext().getApplicationContext(),imagePath,Toast.LENGTH_SHORT).show();
+//        Toast.makeText(getContext().getApplicationContext(),imagePath,Toast.LENGTH_SHORT).show();
 
 //        读取图片
         try {
@@ -47,7 +47,8 @@ public class ShowPhotoFragment extends Fragment {
             Bitmap bitmap = BitmapFactory.decodeStream(in);
 
             Matrix matrix  = new Matrix();
-            matrix.setRotate(90);
+            String[]  c = imagePath.split("/");
+            if (c[1].equals("data")) matrix.setRotate(90);
 
             Bitmap bitmap1 = Bitmap.createBitmap(bitmap,0,0,bitmap.getWidth(),bitmap.getHeight(),matrix,true);
             imageView.setImageBitmap(bitmap1);

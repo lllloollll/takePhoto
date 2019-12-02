@@ -162,6 +162,26 @@
         android:textColor="#FFE5E5E5"
         android:textSize="16sp"/>
 
+<!--    <ImageView-->
+<!--        android:layout_width="36dp"-->
+<!--        android:layout_height="18dp"-->
+<!--        android:layout_marginLeft="16dp"-->
+<!--        android:layout_marginTop="551dp"-->
+<!--        android:src="@drawable/image_new"/>-->
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id = "@+id/recyclerview"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="539dp"
+        android:layout_marginLeft="16dp"
+        android:layout_marginRight="16dp"
+        android:layout_marginBottom="34dp"/>
+
+        />
+
     <ImageView
         android:layout_width="134dp"
         android:layout_height="5dp"

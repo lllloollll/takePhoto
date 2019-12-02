@@ -8,4 +8,15 @@
         <item name="colorAccent">@color/colorAccent</item>
     </style>
 
+    <style name="itemRatingBar"
+        parent="@android:style/Widget.RatingBar">
+        <item name="android:progressDrawable">@drawable/item_ratingbar</item>
+        <item name="android:maxHeight">12dp</item>
+        <item name="android:minHeight">12dp</item>
+        <item name="android:gravity">center</item>
+        <item name="android:stepSize">0.5</item>
+        <item name="android:numStars">5</item>
+        <item name="android:layout_marginLeft">3dp</item>
+    </style>
+
 </resources>
