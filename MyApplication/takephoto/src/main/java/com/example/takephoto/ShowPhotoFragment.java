@@ -41,8 +41,8 @@ public class ShowPhotoFragment extends Fragment {
     public void onDestroy() {
         super.onDestroy();
         File imageFile = new File(imagePath);
-        System.out.println("OnDestory!");
-        if (imageFile.exists()){
+        String[]  c = imagePath.split("/");
+        if (c[1].equals("data") & imageFile.exists()){
             imageFile.delete();
             System.out.println("File:"+imageFile.exists());
         }
