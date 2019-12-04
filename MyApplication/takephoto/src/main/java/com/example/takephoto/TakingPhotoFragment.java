@@ -220,13 +220,13 @@ public class TakingPhotoFragment extends Fragment {
                     break;
                 case R.id.image_button_lightning:
                     if (lightning == false){
+                        buttonLightning.setActivated(true);
                         imageCapture.setFlashMode(FlashMode.ON);
                         lightning = true;
-                        Toast.makeText(getActivity().getApplicationContext(),"闪光灯已打开",Toast.LENGTH_SHORT).show();
                     }else {
+                        buttonLightning.setActivated(false);
                         imageCapture.setFlashMode(FlashMode.OFF);
                         lightning = false;
-                        Toast.makeText(getActivity().getApplicationContext(),"闪光灯已关闭",Toast.LENGTH_SHORT).show();
                     }
                     break;
                 case R.id.image_button_back:

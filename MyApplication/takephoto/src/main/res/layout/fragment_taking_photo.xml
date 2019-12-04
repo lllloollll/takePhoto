@@ -37,7 +37,7 @@
         android:layout_gravity="right"
         android:layout_marginTop="54dp"
         android:layout_marginRight="20dp"
-        android:src="@mipmap/sharp_lightning"/>
+        android:src="@drawable/button_lighting_background"/>
 
     <ImageButton
         android:id="@+id/image_button_image"
