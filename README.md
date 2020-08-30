@@ -1,6 +1,6 @@
 # takePhoto
 takePhoto
 
-Master First
+Fetch First
 
 Master Second
