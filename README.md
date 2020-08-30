@@ -3,4 +3,4 @@ takePhoto
 
 Fetch First
 
-Fetch Second
+Master Second
