@@ -1,4 +1,4 @@
 # takePhoto
 takePhoto
 
-Master First
+Fetch First
